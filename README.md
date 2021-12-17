@@ -26,3 +26,6 @@
 [Handson 2](https://github.com/ADM21JF-008009/Nikhilkumar_Marathe-2063604/tree/main/Stage%203/Spring-data-jpa/Day%202-Session%201/Handson%202)
 
 [Handson 3-6](https://github.com/ADM21JF-008009/Nikhilkumar_Marathe-2063604/tree/main/Stage%203/Spring-data-jpa/Day%202-Session%201/Handson%203-6/Hibernate-Mapping)
+
+###### Day 2-Session 2
+

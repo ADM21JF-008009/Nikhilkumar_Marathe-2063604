@@ -30,9 +30,7 @@ public class OrmLearnApplication {
 		 testUpdateCountry();
 		 testDeleteCountry();
 		 
-		 testFindByNameContaining();
-		 testFindByNameContainingOrderByAsc();
-		 testfindByNameStartingWith();
+		
 		 LOGGER.info("Inside main");
 	}
 
@@ -72,49 +70,5 @@ public class OrmLearnApplication {
 		System.out.println("Country Deleted- TD");
 	}
 
-	private static void testFindByNameContaining() {
-
-		List<Country> cList = countryService.findByNameContaining("ou");
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("COUTRIES CONTAINING ou IN NAME");
-		for (Country c : cList) {
-			System.out.println(c.getCode() + " " + c.getName());
-		}
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("|");
-	}
-
-	private static void testFindByNameContainingOrderByAsc() {
-
-		List<Country> cList = countryService.findByNameContainingOrderByAsc("ou");
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("COUTRIES CONTAINING ou IN NAME IN ASCENDING ORDER");
-		for (Country c : cList) {
-			System.out.println(c.getCode() + " " + c.getName());
-		}
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("|");
-	}
-
-	private static void testfindByNameStartingWith() {
-		List<Country> list = countryService.findByNameStartingWith("z");
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("|");
-		
-		System.out.println("COUNTRIES STARTING WITH Z");
-		for (Country c : list) {
-			System.out.println(c.getCode() + " " + c.getName());
-		}
-		System.out.println("|");
-		System.out.println("|");
-		System.out.println("|");
-		
-	}
+	
 }

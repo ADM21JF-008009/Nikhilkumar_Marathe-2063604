@@ -12,8 +12,8 @@
 
 ## Spring Data JPA
 
-[Handson 1 - Day 1-Session 1 & 2]
+[Handson 1 - Day 1-Session 1 & 2](https://github.com/ADM21JF-008009/Nikhilkumar_Marathe-2063604/tree/main/Stage%203/Spring-data-jpa/Day%201-Session%201%20%26%202)
 
-[Handson 2-9 - Day 1-Session 1 & 2]
+[Handson 2-9 - Day 1-Session 1 & 2](https://github.com/ADM21JF-008009/Nikhilkumar_Marathe-2063604/tree/main/Stage%203/Spring-data-jpa/Day%201-Session%201%20%26%202/Handson%202-9/h2)
 
 

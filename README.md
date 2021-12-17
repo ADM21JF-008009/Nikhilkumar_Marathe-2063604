@@ -1,4 +1,6 @@
-# Stage 3 Handson ###### by Nikhilkumar Marathe
+# Stage 3 Handson
+###### by Nikhilkumar Marathe
+
 
 ## Bootstrap
 

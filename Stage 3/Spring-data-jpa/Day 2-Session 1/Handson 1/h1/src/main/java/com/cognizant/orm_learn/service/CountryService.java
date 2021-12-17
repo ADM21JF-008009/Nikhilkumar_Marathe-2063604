@@ -1,4 +1,4 @@
-package com.cognizant.orm_learn.service;
+package com.cognizant.ormlearn.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,39 +6,30 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.cognizant.orm_learn.model.Country;
-import com.cognizant.orm_learn.repository.CountryRepository;
-import com.cognizant.spring_learn.service.exception.CountryNotFoundException;
+import com.cognizant.ormlearn.model.Country;
+import com.cognizant.ormlearn.repository.CountryRepository;
+import com.cognizant.springlearn.service.exception.CountryNotFoundException;
 
 @Service
 public class CountryService {
 	
-	
 	@Autowired
-	CountryRepository countryRepository;
+	private CountryRepository countryRepository;
 	
 	@Transactional
-	public List<Country> getAllCountries() {
+	public List<Country> getAllCountries(){
 		return countryRepository.findAll();
 	}
 	
 	@Transactional
-	public Country  findCountryByCode(String countryCode) throws CountryNotFoundException {
-		Optional<Country> result = countryRepository.findById(countryCode);
-		try {
-			if (!result.isPresent()) {
-				throw new CountryNotFoundException("Country Not found");
-			}
-		} catch(CountryNotFoundException e){
-			e.getMessage();
+	 public Country findCountryByCode(String countryCode) throws CountryNotFoundException{
+		Optional<Country> result=countryRepository.findById(countryCode);
+		if(!result.isPresent()) {
+			throw new CountryNotFoundException("No Country Found in Database");
 		}
-		Country country = result.get();
-		return country;
+		return result.get();
 	}
 	
 	@Transactional
@@ -47,22 +38,33 @@ public class CountryService {
 	}
 	
 	@Transactional
-	public void updateCountry(String countryCode, String countryName) throws CountryNotFoundException {
-		Optional<Country> result = countryRepository.findById(countryCode);
-		if(result.isPresent()) {
-			Country country=result.get();
-			country.setName(countryName);
-			countryRepository.save(country);
-		}else {
-			throw new CountryNotFoundException("Country Not Found");
-		}
+	public void updateCountry(String co_code, String co_name) {
 		
+		Optional<Country> optionalCountry=countryRepository.findById(co_code);
+		Country country=optionalCountry.get();
+		country.setName(co_name);
+		countryRepository.save(country);
 	}
 	
 	@Transactional
-	public void deleteCountry(String id) {
-		countryRepository.deleteById(id);
+	public void deleteCountry(String co_code) {
+		countryRepository.deleteById(co_code);
 	}
-
-
+	
+	@Transactional 
+	public List<Country> findByNameContaining(String str){
+		List<Country> list=countryRepository.findByNameContaining(str);
+		return list;
+	}
+	
+	@Transactional 
+	public List<Country> findByNameContainingOrderByAsc(String str){
+		List<Country> list=countryRepository.findByNameContainingOrderByNameAsc(str);
+		return list;
+	}
+	
+	@Transactional
+	public List<Country> findByNameStartingWith(String str){
+		return countryRepository.findByNameStartingWith(str);
+	}
 }

@@ -63,6 +63,23 @@ public class CountryService {
 	public void deleteCountry(String id) {
 		countryRepository.deleteById(id);
 	}
+	
+	@Transactional 
+	public List<Country> findByNameContaining(String str){
+		List<Country> list=countryRepository.findByNameContaining(str);
+		return list;
+	}
+	
+	@Transactional 
+	public List<Country> findByNameContainingOrderByAsc(String str){
+		List<Country> list=countryRepository.findByNameContainingOrderByNameAsc(str);
+		return list;
+	}
+	
+	@Transactional
+	public List<Country> findByNameStartingWith(String str){
+		return countryRepository.findByNameStartingWith(str);
+	}
 
 
 }

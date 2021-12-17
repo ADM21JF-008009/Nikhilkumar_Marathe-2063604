@@ -17,16 +17,6 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	@Query(value = "SELECT e FROM Employee e left join fetch e.department d left join fetch e.skillList WHERE e.permanent = 1")
 	List<Employee> getAllPermanentEmployees();
 
-	/*
-	 * NOTE: HQL looks like SQL, instead of table, Java classes and it's instance
-	 * variables are addressed here
-	 * 
-	 * Join keyword links the table, but does not populate the beans. Fetch ensures
-	 * that the beans are populated. Based on our need wherever we need data, we can
-	 * define fetch. When joining table data is not needed the fetch can be ignored.
-	 * 
-	 */
-
 	@Query(value = "SELECT AVG(e.salary) FROM Employee e")
 	double getAverageSalary();
 	
